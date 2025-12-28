@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+langchain
+langchain-community
+langchain-ollama
+langchain-core
+langchain-text-splitters
+langchain-classic
+faiss-cpu
+python-dotenv
+streamlit
+PyPDF2
+python-docx
+docx2txt
+pandas
+pillow
+easyocr
