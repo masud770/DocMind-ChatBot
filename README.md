@@ -2,36 +2,38 @@
 
 **Smart Local RAG Document Chatbot with OCR Support**
 
-**DocMind** is a fully local, private, and intelligent Retrieval-Augmented Generation (RAG) document chatbot. It enables natural language querying over uploaded documents (PDF, images, Word files, and spreadsheets) with accurate answers and source references. This program runs offline using Ollama.
+**DocMind** is a fully local, private, and intelligent Retrieval-Augmented Generation (RAG) document chatbot. It enables natural language querying over uploaded documents (PDFs, images, Word files, spreadsheets, and more) with accurate answers and transparent source references — all running offline using Ollama.
 
 ## 🌟 Key Features
 
-- **Multi-Format Document Support**
-  PDF • DOCX • TXT • CSV • JSON • Excel • Images
+- **Multi-Format Document Support**  
+  PDF • DOCX • TXT • CSV • JSON • Excel (.xlsx) • Images (JPG, PNG, BMP, TIFF)
 
-- **Advanced OCR**  
-  Powered by **easyOCR** – high accuracy, multilingual (English + Bengali)
+- **Advanced OCR for Images**  
+  Powered by **easyOCR** – high accuracy with multilingual support (English + Bengali)
 
 - **Intelligent RAG Pipeline**  
-  - Text chunking with overlap (`RecursiveCharacterTextSplitter`)
-  - Embeddings: **nomic-embed-text** (state-of-the-art open-source)
-  - Persistent FAISS vector store with incremental merging
-  - Rich metadata tracking (filename, page, chunk preview)
+  - Text chunking with overlap using `RecursiveCharacterTextSplitter`
+  - State-of-the-art local embeddings with **nomic-embed-text** (comparable to or better than OpenAI models)
+  - Persistent FAISS vector store with incremental merging for multi-document sessions
+  - Rich metadata tracking: filename, page number, chunk preview
 
 - **Smart Query Handling**  
   - General questions from text documents
-  - Image-based questions (headlines, summaries, diagrams)
-  - Direct text extraction ("extract text", "read text from image")
-  - Answers include **expandable source references**
+  - Image-based questions (headlines, summaries, diagrams, charts)
+  - Direct text extraction commands ("extract text", "read text from image")
+  - Answers include **expandable source references** for full transparency
 
 - **100% Local & Private**  
-  Powered by **Ollama** (llama3.2:3b + nomic-embed-text)  
+  Powered by **Ollama**  
+  - LLM: llama3.2:3b  
+  - Embeddings: nomic-embed-text  
   No external APIs • Zero cost • Complete data privacy
 
 - **Professional Architecture**  
-  - FastAPI backend
-  - Streamlit frontend (drag-and-drop + chat interface)
-  - Docker-ready
+  - FastAPI backend with clean endpoints and Pydantic validation
+  - Streamlit frontend with drag-and-drop upload and modern chat interface
+  - Docker-ready for reproducible deployment
 
 ## 🛠️ Technology Stack
 
@@ -39,7 +41,7 @@
 |-----------------|-------------------------------------|
 | Backend         | FastAPI                             |
 | RAG Framework   | LangChain                           |
-| Vector Store    | FAISS (incremental)                 |
+| Vector Store    | FAISS (incremental merge)           |
 | Embeddings      | nomic-embed-text (Ollama)           |
 | LLM             | llama3.2:3b (Ollama)                |
 | OCR             | easyOCR                             |
@@ -49,46 +51,48 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
-bash
-# Install Ollama<a href="https://ollama.com" target="_blank" rel="noopener noreferrer nofollow"></a>
+```bash
+# Install Ollama from https://ollama.com
 ollama pull llama3.2:3b
 ollama pull nomic-embed-text
-
+```
 ### Setup & Run
-
-# Clone and install
+```Bash
+# Clone the repository
 git clone https://github.com/masud770/DocMind-ChatBot.git
 cd DocMind-ChatBot
+
+# Install dependencies
 pip install -r requirements.txt
 
-# Run backend
+# Run the backend
 uvicorn main:app --reload
-API docs: http://localhost:8000/docs
+# API docs available at http://localhost:8000/docs
 
-# Run frontend (new terminal)
+# Run the frontend (in a new terminal)
 streamlit run streamlit_app.py
-Open http://localhost:8501 
-
+# Open http://localhost:8501 in your browser
+```
 ### Docker Deployment
-
-Bashdocker build -t docmind .
+```Bash
+docker build -t docmind.
 docker run -p 8501:8501 docmind
-
+```
 ###🔌 API Usage
-
-POST /upload
-Upload and index documents
-
-files: { "file": (filename, file_data) }
-
-POST /query
-Ask questions
-
-files: { "file": (filename, file_data) }
-
-Response includes:
+POST /upload – Upload and index documents
+Form Data: file (binary file)
+POST /query – Ask questions
+Request Body (JSON):
+```JSON
 {
-  "answer": "Payment due within 30 days...",
+  "question": "What are the payment terms in the invoice?",
+  "image_base64": "optional_base64_encoded_image"  // For direct image query
+}
+```
+Response:
+```JSON
+{
+  "answer": "Payment is due within 30 days.",
   "sources": [
     {
       "file": "invoice.pdf",
@@ -97,34 +101,43 @@ Response includes:
     }
   ]
 }
-Additional Endpoints
+```
+# Additional Endpoints
 
-GET /health → System status
-POST /clear → Reset knowledge base
+    GET / – Welcome message
+    GET /health – System status
+    POST /clear – Reset vector store
 
-### ⚙️ Environment Setup
-Create .env from template:
+Interactive API documentation: http://localhost:8000/docs (Swagger UI)
 
+###⚙️ Environment Setup
+Create a .env file from the template:
+```env
 # .env.example
 OLLAMA_EMBEDDING_MODEL=nomic-embed-text
 OLLAMA_LLM_MODEL=llama3.2:3b
+```
+###📸 Experience Highlights
 
+Drag-and-drop multiple document upload
+Real-time conversational interface
+Mixed content handling (PDF + images in the same session)
+Persistent knowledge across restarts
+Source citations for every answer
 
-### 📸 Experience Highlights
+###🔒 Privacy & Performance
 
-Drag-and-drop multiple documents
-Real-time chat with source citations
-Seamless handling of mixed content (PDFs + images)
-Persistent knowledge across sessions
+Complete Data Privacy – No data leaves your machine
+Zero Cost – No tokens or subscriptions
+High Accuracy – Strict context-only prompting reduces hallucinations
+Fast Local Inference – Optimized retrieval and response times
 
-### 🔒 Privacy & Performance
-
-Complete Data Privacy — Nothing leaves your machine
-Zero Ongoing Cost — No tokens, no subscriptions
-High Accuracy — Context-only prompting minimizes hallucinations
-Fast Response — Local inference with optimized retrieval
-
-### 🙏 Built With
+🙏 Built With
 LangChain • Ollama • FAISS • easyOCR • FastAPI • Streamlit
-DocMind — Your documents, intelligently understood.
-Crafted by [Md Masud Rana]
+DocMind — Your documents, intelligently understood. Privately. Locally.
+**Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)**  
+[![GitHub](https://img.shields.io/badge/GitHub-masud770-black?style=flat&logo=github)](https://github.com/masud770)  
+
+
+
+
