@@ -63,11 +63,11 @@ pip install -r requirements.txt
 
 # Run backend
 uvicorn main:app --reload
-# API docs: http://localhost:8000/docs
+API docs: http://localhost:8000/docs
 
 # Run frontend (new terminal)
 streamlit run streamlit_app.py
-# Open http://localhost:8501 
+Open http://localhost:8501 
 
 ### Docker Deployment
 
@@ -75,6 +75,7 @@ Bashdocker build -t docmind .
 docker run -p 8501:8501 docmind
 
 ###🔌 API Usage
+
 POST /upload
 Upload and index documents
 
