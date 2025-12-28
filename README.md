@@ -2,7 +2,7 @@
 
 **Smart Local RAG Document Chatbot with OCR Support**
 
-**DocMind** is a fully local, private, and intelligent Retrieval-Augmented Generation (RAG) document chatbot. It enables natural language querying over uploaded documents (PDF, images, Word files, spreadsheets) with accurate answers and source references — all running offline using Ollama.
+**DocMind** is a fully local, private, and intelligent Retrieval-Augmented Generation (RAG) document chatbot. It enables natural language querying over uploaded documents (PDF, images, Word files, and spreadsheets) with accurate answers and source references. This program runs offline using Ollama.
 
 ## 🌟 Key Features
 
@@ -49,14 +49,13 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
-```bash
+bash
 # Install Ollama<a href="https://ollama.com" target="_blank" rel="noopener noreferrer nofollow"></a>
 ollama pull llama3.2:3b
 ollama pull nomic-embed-text
 
 ### Setup & Run
 
-```bash
 # Clone and install
 git clone https://github.com/masud770/DocMind-ChatBot.git
 cd DocMind-ChatBot
@@ -68,9 +67,9 @@ uvicorn main:app --reload
 
 # Run frontend (new terminal)
 streamlit run streamlit_app.py
-# Open http://localhost:8501
+# Open http://localhost:8501 
 
-###Docker Deployment
+### Docker Deployment
 
 Bashdocker build -t docmind .
 docker run -p 8501:8501 docmind
