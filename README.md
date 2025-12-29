@@ -1,8 +1,8 @@
-# 🚀 DocMind ChatBot
+#  DocMind ChatBot
 
 **Smart Local RAG Document Chatbot with OCR Support**
 
-**DocMind** is a fully local and private Retrieval-Augmented Generation (RAG) document chatbot built using FastAPI, LangChain, FAISS, and Ollama. It allows users to upload various document types (PDF, DOCX, TXT, CSV, JSON, Excel, images) and ask natural language questions, receiving accurate answers with source references — all running offline using Ollama
+**DocMind** is a fully local and private Retrieval-Augmented Generation (RAG) document chatbot built using FastAPI, LangChain, FAISS, and Ollama. It allows users to upload various document types (PDF, DOCX, TXT, CSV, JSON, Excel, images) and ask natural language questions, receiving accurate answers with source references -all running offline using Ollama
 
 # Key Highlights
   - Supports PDF, Word files, spreadsheets, and images with high-accuracy OCR (easyOCR)
@@ -13,7 +13,7 @@
   - Professional Streamlit UI with drag-and-drop upload and chat interface
   - Docker-ready for easy deployment
 
-## 🌟 Key Features
+##  Key Features
 
 - **Multi-Format Document Support**  
   PDF • DOCX • TXT • CSV • JSON • Excel (.xlsx) • Images (JPG, PNG, BMP, TIFF)
@@ -44,7 +44,7 @@
   - Streamlit frontend with drag-and-drop upload and modern chat interface
   - Docker-ready for reproducible deployment
 
-## 🛠️ Technology Stack
+##  Technology Stack
 
 | Component       | Technology                          |
 |-----------------|-------------------------------------|
@@ -57,7 +57,7 @@
 | Frontend        | Streamlit                           |
 | Deployment      | Docker                              |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 ```bash
@@ -89,7 +89,7 @@ docker build -t docmind.
 docker run -p 8501:8501 docmind
 ```
 
-## 📖 How to Use DocMind
+##  How to Use DocMind
 
   1. **Upload Documents**  
      Drag-and-drop files in the sidebar (supports PDF, images, Word, Excel, etc.)
@@ -139,14 +139,14 @@ Response:
 
 Interactive API documentation: http://localhost:8000/docs (Swagger UI)
 
-## ⚙️ Environment Setup
+##  Environment Setup
 Create a .env file from the template:
 ```env
 # .env.example
 OLLAMA_EMBEDDING_MODEL=nomic-embed-text
 OLLAMA_LLM_MODEL=llama3.2:3b
 ```
-## 📸 Experience Highlights
+##  Experience Highlights
 
   - Drag-and-drop multiple document upload
   - Real-time conversational interface
@@ -154,14 +154,14 @@ OLLAMA_LLM_MODEL=llama3.2:3b
   - Persistent knowledge across restarts
   - Source citations for every answer
 
-## 🔒 Privacy & Performance
+##  Privacy & Performance
 
 Complete Data Privacy – No data leaves your machine
 Zero Cost – No tokens or subscriptions
 High Accuracy – Strict context-only prompting reduces hallucinations
 Fast Local Inference – Optimized retrieval and response times
 
-## 🙏 Built With
+##  Built With
   - LangChain • Ollama • FAISS • easyOCR • FastAPI • Streamlit
   - DocMind — Your documents, intelligently understood. Privately. Locally.
 # **Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)** 
