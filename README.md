@@ -65,6 +65,7 @@
 ollama pull llama3.2:3b
 ollama pull nomic-embed-text
 ```
+
 ### Setup & Run
 ```Bash
 # Clone the repository
@@ -87,6 +88,23 @@ streamlit run streamlit_app.py
 docker build -t docmind.
 docker run -p 8501:8501 docmind
 ```
+
+## 📖 How to Use DocMind
+
+  1. **Upload Documents**  
+     Drag-and-drop files in the sidebar (supports PDF, images, Word, Excel, etc.)
+  
+  2. **Ask Questions**  
+     Type your question in the chat box (e.g., "What is the objective?", "Extract text from image")
+  
+  3. **View Sources**  
+     Click "View Sources" expander to see filename, page, and preview
+  
+  4. **Multi-Document Query**  
+     Upload multiple files — ask questions across all of them
+  
+  5. **Image Questions**  
+     Ask "extract text", "summarize news in image", "what is the headline"
 ## 🔌 API Usage
 
 POST /upload – Upload and index documents
