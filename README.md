@@ -80,7 +80,7 @@ docker run -p 8501:8501 docmind
 ```
 ## 🔌 API Usage
 
-# POST /upload – Upload and index documents
+POST /upload – Upload and index documents
   - Form Data: file (binary file)
   - POST /query – Ask questions
   
