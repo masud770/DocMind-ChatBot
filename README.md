@@ -78,10 +78,12 @@ streamlit run streamlit_app.py
 docker build -t docmind.
 docker run -p 8501:8501 docmind
 ```
-###🔌 API Usage
+### 🔌 API Usage
+
 POST /upload – Upload and index documents
-Form Data: file (binary file)
-POST /query – Ask questions
+- Form Data: file (binary file)
+- POST /query – Ask questions
+  
 Request Body (JSON):
 ```JSON
 {
