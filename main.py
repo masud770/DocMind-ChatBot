@@ -82,7 +82,7 @@ async def query_document(request: QueryRequest):
         raise HTTPException(status_code=400, detail="No documents uploaded yet. Please upload a document first.")
 
     try:
-        # Case 1: User wants to extract raw text from images (any phrasing)
+        # Case 1: extract raw text from images
         extraction_keywords = [
             "extract text", "read text", "all text", "what is written", "text from", 
             "read the text", "give me text", "show text", "get text", "text in the image",
@@ -115,17 +115,17 @@ async def query_document(request: QueryRequest):
                     sources=[]
                 )
 
-        # Case 2: Image-related questions (headline, summarize, explain, etc.)
+        # Case 2: Image-related questions
         image_keywords = ["image", "photo", "picture", "jpg", "png", "screenshot", "diagram", "chart", "news in the image", "headline", "summarize the image"]
         if any(keyword in lower_question for keyword in image_keywords):
             # Boost image relevance
             enhanced_query = question + " (from uploaded image or photo)"
             result = chain.invoke({"query": enhanced_query})
         else:
-            # Case 3: Normal RAG query for PDF, DOCX, etc.
+            # Case 3: query for PDF, DOCX, etc.
             result = chain.invoke({"query": question})
 
-        # Common response formatting
+        #  response
         sources = [
             {
                 "file": doc.metadata.get("source", "Unknown"),
@@ -136,7 +136,7 @@ async def query_document(request: QueryRequest):
         ]
 
         answer = result["result"].strip()
-        # Improve "not found" message
+        #  message for not found
         if "not found" in answer.lower() or "no information" in answer.lower() or not answer:
             answer = "I couldn't find relevant information for your question in the uploaded documents."
 
@@ -144,4 +144,5 @@ async def query_document(request: QueryRequest):
 
     except Exception as e:
         logger.error(f"Query error: {str(e)}")
+
         raise HTTPException(status_code=500, detail="Failed to generate answer. Please try again.")
