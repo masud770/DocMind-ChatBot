@@ -135,9 +135,9 @@ High Accuracy – Strict context-only prompting reduces hallucinations
 Fast Local Inference – Optimized retrieval and response times
 
 ## 🙏 Built With
-LangChain • Ollama • FAISS • easyOCR • FastAPI • Streamlit
-DocMind — Your documents, intelligently understood. Privately. Locally.
-**Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)** 
+  - LangChain • Ollama • FAISS • easyOCR • FastAPI • Streamlit
+  - DocMind — Your documents, intelligently understood. Privately. Locally.
+# **Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)** 
 
 
 
