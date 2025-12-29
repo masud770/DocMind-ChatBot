@@ -2,7 +2,16 @@
 
 **Smart Local RAG Document Chatbot with OCR Support**
 
-**DocMind** is a fully local, private, and intelligent Retrieval-Augmented Generation (RAG) document chatbot. It enables natural language querying over uploaded documents (PDFs, images, Word files, spreadsheets, and more) with accurate answers and transparent source references — all running offline using Ollama.
+**DocMind** is a fully local and private Retrieval-Augmented Generation (RAG) document chatbot built using FastAPI, LangChain, FAISS, and Ollama. It allows users to upload various document types (PDF, DOCX, TXT, CSV, JSON, Excel, images) and ask natural language questions, receiving accurate answers with source references — all running offline using Ollama
+
+# Key Highlights
+  - Supports PDF, Word files, spreadsheets, and images with high-accuracy OCR (easyOCR)
+  - Uses nomic-embed-text embeddings and FAISS vector store with metadata tracking
+  - Smart handling of both text and image-based questions
+  - Answers include expandable source citations (filename, page, preview)
+  - Powered by Ollama (llama3.2:3b) – completely offline, zero cost, full data privacy
+  - Professional Streamlit UI with drag-and-drop upload and chat interface
+  - Docker-ready for easy deployment
 
 ## 🌟 Key Features
 
