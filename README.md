@@ -104,20 +104,20 @@ Response:
 ```
 # Additional Endpoints
 
-    GET / – Welcome message
-    GET /health – System status
-    POST /clear – Reset vector store
+    - GET / – Welcome message
+    - GET /health – System status
+    - POST /clear – Reset vector store
 
 Interactive API documentation: http://localhost:8000/docs (Swagger UI)
 
-###⚙️ Environment Setup
+### ⚙️ Environment Setup
 Create a .env file from the template:
 ```env
 # .env.example
 OLLAMA_EMBEDDING_MODEL=nomic-embed-text
 OLLAMA_LLM_MODEL=llama3.2:3b
 ```
-###📸 Experience Highlights
+### 📸 Experience Highlights
 
 Drag-and-drop multiple document upload
 Real-time conversational interface
@@ -125,18 +125,17 @@ Mixed content handling (PDF + images in the same session)
 Persistent knowledge across restarts
 Source citations for every answer
 
-###🔒 Privacy & Performance
+### 🔒 Privacy & Performance
 
 Complete Data Privacy – No data leaves your machine
 Zero Cost – No tokens or subscriptions
 High Accuracy – Strict context-only prompting reduces hallucinations
 Fast Local Inference – Optimized retrieval and response times
 
-🙏 Built With
+### 🙏 Built With
 LangChain • Ollama • FAISS • easyOCR • FastAPI • Streamlit
 DocMind — Your documents, intelligently understood. Privately. Locally.
-**Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)**  
-[![GitHub](https://img.shields.io/badge/GitHub-masud770-black?style=flat&logo=github)](https://github.com/masud770)  
+**Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)** 
 
 
 
