@@ -133,9 +133,9 @@ Response:
 ```
 # Additional Endpoints
 
-    - GET / – Welcome message
-    - GET /health – System status
-    - POST /clear – Reset vector store
+    - GET / - Welcome message
+    - GET /health - System status
+    - POST /clear - Reset vector store
 
 Interactive API documentation: http://localhost:8000/docs (Swagger UI)
 
@@ -156,14 +156,14 @@ OLLAMA_LLM_MODEL=llama3.2:3b
 
 ##  Privacy & Performance
 
-Complete Data Privacy – No data leaves your machine
-Zero Cost – No tokens or subscriptions
-High Accuracy – Strict context-only prompting reduces hallucinations
-Fast Local Inference – Optimized retrieval and response times
+Complete Data Privacy - No data leaves your machine
+Zero Cost - No tokens or subscriptions
+High Accuracy - Strict context-only prompting reduces hallucinations
+Fast Local Inference - Optimized retrieval and response times
 
 ##  Built With
   - LangChain • Ollama • FAISS • easyOCR • FastAPI • Streamlit
-  - DocMind — Your documents, intelligently understood. Privately. Locally.
+  - DocMind - Your documents, intelligently understood. Privately. Locally.
 # **Crafted by [Md Masud Rana](https://www.linkedin.com/in/masudr760/)** 
 
 
